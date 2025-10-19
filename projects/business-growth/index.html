@@ -1,46 +1,23 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Business Growth Detector — Demo</title>
-  <link rel="stylesheet" href="../assets/style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Business Growth Predictor</title>
+  <link rel="stylesheet" href="../../style.css">
 </head>
 <body>
-  <main class="container">
-    <section class="card">
-      <h2>Business Growth Detector — Demo</h2>
-      <p>Client-side demo (simplified linear formula). For full model code, visit the GitHub repo.</p>
-      <div class="grid-3">
-        <label>R&D Spend: <input id="rd" type="number" value="50000"></label>
-        <label>Administration: <input id="adm" type="number" value="5000"></label>
-        <label>Marketing: <input id="mkt" type="number" value="20000"></label>
-      </div>
-      <div style="margin-top:12px">
-        <button id="pred" class="btn">Predict</button>
-        <button id="clr" class="btn ghost">Clear</button>
-      </div>
-      <div id="out" class="result" style="display:none"></div>
-      <p class="small">Original repo: https://github.com/shivabommera143/business_growth_detection</p>
-    </section>
-  </main>
-  <script>
-    function predictProfit(r,a,m){
-      const profit = 0.85 * r + 0.06 * a + 0.03 * m - 12000;
-      return Math.round(profit*100)/100;
-    }
-    document.getElementById('pred').addEventListener('click', ()=>{
-      const r = Number(document.getElementById('rd').value) || 0;
-      const a = Number(document.getElementById('adm').value) || 0;
-      const m = Number(document.getElementById('mkt').value) || 0;
-      const p = predictProfit(r,a,m);
-      const out = document.getElementById('out');
-      out.style.display='block';
-      out.textContent = `Predicted Profit: ₹ ${p.toLocaleString('en-IN')}`;
-    });
-    document.getElementById('clr').addEventListener('click', ()=>{
-      document.getElementById('rd').value=''; document.getElementById('adm').value=''; document.getElementById('mkt').value=''; document.getElementById('out').style.display='none';
-    });
-  </script>
+  <section class="hero">
+    <h2>Business Growth Predictor</h2>
+    <p>Demo interface for Flask-based startup profit prediction model.</p>
+    <div class="card">
+      <input type="number" placeholder="R&D Spend (₹)" style="padding:10px; margin:5px; width:90%;">
+      <input type="number" placeholder="Administration Spend (₹)" style="padding:10px; margin:5px; width:90%;">
+      <input type="number" placeholder="Marketing Spend (₹)" style="padding:10px; margin:5px; width:90%;">
+      <br>
+      <a href="#" class="btn">Predict Profit</a>
+    </div>
+    <a href="../../index.html" class="btn secondary">Back to Portfolio</a>
+  </section>
 </body>
 </html>
