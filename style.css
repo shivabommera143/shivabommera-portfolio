@@ -1,0 +1,120 @@
+/* Modern Blue Theme */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #f5f8ff;
+  color: #1b1f3b;
+  line-height: 1.6;
+}
+
+header {
+  background: #1e3a8a;
+  color: white;
+  padding: 15px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  margin-left: 40px;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  justify-content: flex-end;
+  margin-right: 40px;
+}
+
+nav ul li {
+  margin: 0 10px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+nav ul li a:hover {
+  color: #93c5fd;
+}
+
+.section {
+  padding: 60px 80px;
+}
+
+.section h2 {
+  color: #1e3a8a;
+  margin-bottom: 20px;
+  border-left: 5px solid #3b82f6;
+  padding-left: 10px;
+}
+
+.home {
+  text-align: center;
+  background: linear-gradient(to right, #1e3a8a, #3b82f6);
+  color: white;
+  padding: 100px 20px;
+}
+
+.home h2 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+.home p {
+  font-size: 1.1rem;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  margin: 15px 0;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skills li {
+  background: #1e3a8a;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 20px;
+  list-style: none;
+  font-size: 0.95rem;
+}
+
+.contact a {
+  color: #1e3a8a;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.contact a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  text-align: center;
+  background: #1e3a8a;
+  color: white;
+  padding: 15px 0;
+  margin-top: 40px;
+  font-size: 0.9rem;
+}
