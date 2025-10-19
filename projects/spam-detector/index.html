@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Spam Message Detector — Demo</title>
+  <link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+  <main class="container">
+    <section class="card">
+      <h2>Spam Message Detector — Demo</h2>
+      <p>Client-side demo (heuristic). For full model code, visit the GitHub repo.</p>
+      <textarea id="spam-input" placeholder="Type your message..." rows="6"></textarea>
+      <div style="margin-top:12px">
+        <button id="check" class="btn">Check</button>
+        <button id="clear" class="btn ghost">Clear</button>
+      </div>
+      <div id="out" class="result" style="display:none"></div>
+      <p class="small">Original repo: https://github.com/shivabommera143/Spam_msg_detector/</p>
+    </section>
+  </main>
+  <script>
+    function predictSpam(text){
+      if(!text || text.trim().length===0) return {label:'',score:0};
+      const spamWords = ['free','win','winner','prize','click','buy now','urgent','congratulations','claim','offer','loan','cash'];
+      const t = text.toLowerCase();
+      let hits = 0;
+      spamWords.forEach(w => { if(t.includes(w)) hits++; });
+      const score = Math.min(1, hits / 3);
+      return {label: hits>0? 'spam' : 'ham', score: Math.round(score*100)};
+    }
+    document.getElementById('check').addEventListener('click', ()=>{
+      const txt = document.getElementById('spam-input').value;
+      const res = predictSpam(txt);
+      const out = document.getElementById('out');
+      if(!res.label){ out.style.display='block'; out.textContent='Enter a message to check.'; return; }
+      out.style.display='block';
+      out.textContent = `Prediction: ${res.label.toUpperCase()} (confidence ~ ${res.score}%)`;
+    });
+    document.getElementById('clear').addEventListener('click', ()=>{
+      document.getElementById('spam-input').value=''; document.getElementById('out').style.display='none';
+    });
+  </script>
+</body>
+</html>
